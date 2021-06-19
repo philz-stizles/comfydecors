@@ -2,9 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Features
 
 In the project directory, you can run:
+
+Auth0
+Stripe
+Netlify:
+Netlify functions - for Stripe checkout
+
+Install packages:
+
+styled-components
+moment
+uuid
+@auth0/auth0-react
+stripe | @stripe/react-stripe-js | @stripe/stripe-js
+dotenv
 
 ### `yarn start`
 
@@ -14,10 +28,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### Environment Variables
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+yarn add dotenv
+touch .env
+Add values:
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_CLIENT_ID=
+REACT_APP_STRIPE_PUBLIC_KEY=
+REACT_APP_STRIPE_SECRET_KEY=
 
 ### `yarn build`
 
