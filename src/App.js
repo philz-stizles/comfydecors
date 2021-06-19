@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { history } from '.';
+import PrivateRoute from './auth/PrivateRoute';
+import { Footer, Navbar, Sidebar } from './components';
+import {
+  AboutPage,
+  CartPage,
+  CheckoutPage,
+  ErrorPage,
+  HomePage,
+  SingleProductPage,
+  ProductsPage,
+} from './pages';
 
-function App() {
+// Pages
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      {/* Don't forget to add the history to your router above */}
+      <Navbar />
+      <Sidebar />
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/about" exact>
+          <AboutPage />
+        </Route>
+        <Route path="/cart" exact>
+          <CartPage />
+        </Route>
+
+        <PrivateRoute exact path="/checkout">
+          <CheckoutPage />
+        </PrivateRoute>
+
+        <Route path="/products" exact>
+          <ProductsPage />
+        </Route>
+        <Route path="/products/:id" exact children={<SingleProductPage />} />
+
+        <Route path="*">
+          <ErrorPage />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
