@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 const NavLink = ({ url, label }) => {
   return (
-    <NavLinkWrapper>
+    <Wrapper>
       <Link to={url}>{label}</Link>
-    </NavLinkWrapper>
+    </Wrapper>
   );
 };
 
-export const NavLinkWrapper = styled.li`
+export const Wrapper = styled.li`
   li {
     margin: 0 0.5rem;
   }

@@ -3,6 +3,7 @@ import Sidebar from './Sidebar/Sidebar';
 import NavLink from './NavLink/NavLink';
 import CartLink from './CartLink/CartLink';
 import CartTotals from './CartTotals/CartTotals';
+import CartContent from './CartContent/CartContent';
 import SidebarLink from './SidebarLink/SidebarLink';
 import Footer from './Footer/Footer';
 import Hamburger from './Hamburger/Hamburger';
@@ -11,6 +12,12 @@ import LoginButton from './LoginButton/LoginButton';
 import LogoutButton from './LogoutButton/LogoutButton';
 import PageHero from './PageHero/PageHero';
 import Hero from './Hero/Hero';
+import Filters from './Filters/Filters';
+import Sort from './Sort/Sort';
+import ProductList from './ProductList/ProductList';
+import GridView from './GridView/GridView';
+import ListView from './ListView/ListView';
+import Product from './Product/Product';
 import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
 import Services from './Services/Services';
 import Contact from './Contact/Contact';
@@ -19,6 +26,7 @@ import Loading from './Loading/Loading';
 import ProductImages from './ProductImages/ProductImages';
 import Stars from './Stars/Stars';
 import AddToCart from './AddToCart/AddToCart';
+import StripeCheckout from './StripeCheckout/StripeCheckout';
 
 export {
   AddToCart,
@@ -34,6 +42,12 @@ export {
   ProductImages,
   PageHero,
   Hero,
+  Filters,
+  Sort,
+  ProductList,
+  ListView,
+  GridView,
+  Product,
   FeaturedProducts,
   Services,
   Stars,
@@ -42,4 +56,6 @@ export {
   Error,
   LoginButton,
   LogoutButton,
+  CartContent,
+  StripeCheckout,
 };

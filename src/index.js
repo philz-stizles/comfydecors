@@ -23,15 +23,19 @@ const onRedirectCallback = (appState) => {
 
 ReactDOM.render(
   <Auth0Provider
-    domain="devdezyn.eu.auth0.com"
-    clientId="5FH9Yy4Kz02frMZuBkmopSUzz63wVhb5"
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_Auth0_CLIENT_ID}
     redirectUri={window.location.origin}
     cacheLocation="localstorage"
     onRedirectCallback={onRedirectCallback}
   >
     <SidebarProvider>
       <ProductsProvider>
-        <App />
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
       </ProductsProvider>
     </SidebarProvider>
   </Auth0Provider>,

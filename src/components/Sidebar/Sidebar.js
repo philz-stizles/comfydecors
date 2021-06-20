@@ -1,7 +1,5 @@
 import React from 'react';
 import logo from '../../assets/images/logo.svg';
-import { Link } from 'react-router-dom';
-// import { useProductsContext } from '../context/products_context';
 import { FaTimes } from 'react-icons/fa';
 import links from '../../lib/nav-links';
 import styled from 'styled-components';

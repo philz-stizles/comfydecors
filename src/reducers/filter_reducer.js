@@ -10,6 +10,68 @@ import {
 } from '../actions';
 
 const filter_reducer = (state, action) => {
+  if (action.type === LOAD_PRODUCTS) {
+    const prices = action.payload.map((p) => p.price);
+    const maxPrice = Math.max(...prices);
+    return {
+      ...state,
+      all_products: [...action.payload],
+      filtered_products: [...action.payload],
+      filters: { ...state.filters, max_price: maxPrice },
+    };
+  }
+
+  if (action.type === SET_GRIDVIEW) {
+    return {
+      ...state,
+      grid_view: true,
+    };
+  }
+
+  if (action.type === SET_LISTVIEW) {
+    return {
+      ...state,
+      grid_view: false,
+    };
+  }
+
+  if (action.type === UPDATE_SORT) {
+    return {
+      ...state,
+      sort: action.payload,
+    };
+  }
+
+  if (action.type === SORT_PRODUCTS) {
+    const { sort, filtered_products } = state;
+    let updatedProducts = [...filtered_products];
+
+    if (sort === 'price-lowest') {
+      updatedProducts = filtered_products.sort((a, b) => a.price - b.price);
+    }
+
+    if (sort === 'price-highest') {
+      updatedProducts = filtered_products.sort((a, b) => b.price - a.price);
+    }
+
+    if (sort === 'name-a') {
+      updatedProducts = filtered_products.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+    }
+
+    if (sort === 'name-z') {
+      updatedProducts = filtered_products.sort((a, b) =>
+        b.name.localeCompare(a.name)
+      );
+    }
+
+    return {
+      ...state,
+      filtered_products: updatedProducts,
+    };
+  }
+
   return state;
   throw new Error(`No Matching "${action.type}" - action type`);
 };

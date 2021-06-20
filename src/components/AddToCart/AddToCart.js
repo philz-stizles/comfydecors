@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
-// import { useCartContext } from '../context/cart_context';
+import { useCartContext } from '../../context/cart_context';
 import AmountButtons from './../AmountButtons/AmountButtons';
 
 const AddToCart = ({ product }) => {
@@ -10,6 +10,7 @@ const AddToCart = ({ product }) => {
 
   const [mainColor, setMainColor] = React.useState(colors[0]);
   const [amount, setAmount] = React.useState(1);
+  const { addToCart } = useCartContext();
 
   const increaseAmount = () => {
     setAmount((prevAmount) => {
@@ -60,7 +61,11 @@ const AddToCart = ({ product }) => {
           increaseAmount={increaseAmount}
           decreaseAmount={decreaseAmount}
         />
-        <Link to="cart" className="btn">
+        <Link
+          to="/cart"
+          className="btn"
+          onClick={() => addToCart(id, mainColor, amount, product)}
+        >
           add to cart
         </Link>
       </div>

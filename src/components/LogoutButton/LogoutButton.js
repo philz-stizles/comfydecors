@@ -2,12 +2,15 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
 import { FaSignOutAlt } from 'react-icons/fa';
+import { useCartContext } from '../../context/cart_context';
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
+  const { clearCart } = useCartContext();
   return (
     <Wrapper
       onClick={() => {
+        clearCart();
         logout({ returnTo: window.location.origin });
       }}
     >

@@ -2,14 +2,16 @@ import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useCartContext } from '../../context/cart_context';
 
 const CartLink = ({ url, label }) => {
+  const { total_items } = useCartContext();
   return (
     <CartLinkWrapper to={url}>
       {label}{' '}
       <span className="cart-container">
         <FaShoppingCart />
-        <span className="cart-value">12</span>
+        <span className="cart-value">{total_items}</span>
       </span>
     </CartLinkWrapper>
   );
