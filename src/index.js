@@ -18,6 +18,7 @@ export const history = createBrowserHistory();
 
 const onRedirectCallback = (appState) => {
   // Use the router's history module to replace the url
+
   history.replace(appState?.returnTo || window.location.pathname);
 };
 
