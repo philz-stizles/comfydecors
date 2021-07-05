@@ -40,8 +40,9 @@ export const FilterProvider = ({ children }) => {
   }, [products]);
 
   React.useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [state.sort]);
+  }, [state.sort, state.filters]);
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW });
@@ -56,13 +57,42 @@ export const FilterProvider = ({ children }) => {
   };
 
   const updateFilters = (e) => {
-    const { name, value } = e.target;
-    dispatch({ type: UPDATE_FILTERS, payload: e.target.value });
+    let { name, value } = e.target;
+
+    if (name === 'shipping') {
+      value = e.target.checked;
+    }
+
+    if (name === 'category') {
+      value = e.target.textContent;
+    }
+
+    if (name === 'color') {
+      value = e.target.dataset.color;
+    }
+
+    if (name === 'price') {
+      // Ensure to convert to number because data from form in string format
+      value = Number(value);
+    }
+
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
   };
 
   return (
     <FilterContext.Provider
-      value={{ ...state, setListView, setGridView, updateSort }}
+      value={{
+        ...state,
+        setListView,
+        setGridView,
+        updateSort,
+        updateFilters,
+        clearFilters,
+      }}
     >
       {children}
     </FilterContext.Provider>

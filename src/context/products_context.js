@@ -34,7 +34,6 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_PRODUCTS_START });
     try {
       const response = await axios.get(url);
-      console.log(response);
 
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: response.data });
     } catch (error) {
@@ -47,7 +46,6 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_SINGLE_PRODUCT_START });
     try {
       const response = await axios.get(url);
-      console.log(response);
 
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: response.data });
     } catch (error) {

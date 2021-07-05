@@ -9,9 +9,7 @@ const sidebarReducer = (state, action) => {
     return { ...state, isSidebarOpen: false };
   }
 
-  return state;
-
-  // throw new Error(`No Matching "${action.type}" - action type`);
+  throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 export default sidebarReducer;
