@@ -17,11 +17,16 @@ const PageHero = ({ title, product }) => {
 const PageHeroWrapper = styled.section`
   background: var(--clr-primary-10);
   width: 100%;
-  min-height: 20vh;
+  min-height: 14vh;
   display: flex;
   align-items: center;
 
   color: var(--clr-primary-1);
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
   a {
     color: var(--clr-primary-3);
     padding: 0.5rem;

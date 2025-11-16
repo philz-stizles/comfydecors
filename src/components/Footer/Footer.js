@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <h5>
-        &copy; {new Date().getFullYear()}
-        <span>Decours</span>
+        &copy; {new Date().getFullYear()} &nbsp;
+        <span>Interior Decks.</span>
       </h5>
+      &nbsp;
       <h5>All rights reserved</h5>
     </FooterWrapper>
   );
